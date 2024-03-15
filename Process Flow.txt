@@ -1,0 +1,35 @@
+Tools: AD, Yara, Volatility, Snort, LimaCharlie, Wireshark, Velociraptor, Sysmon, Defender for Identity, Sentinel, AAD
+
+Process Flow:
+- Architecture Diagram
+-- AAD
+--- DC VM: Windows 10 Server
+---- Snort
+---- Yara
+---- LimaCharlie Agent
+---- Velociraptor Agent
+--- Remote PC 1: Kali Purple
+---- Wireshark
+---- LimaCharlie Web Client
+--- Remote PC 2: SANS SIFT Workstation
+---- Volatility
+--- Remote PC 3:
+---- Velociraptor Client
+--- Remote PC 4:
+---- Defender for Identity Web Client
+--- Remote PC 5:
+---- Azure Portal / Microsoft Sentinel
+
+* Notice: For reduced attack surface, you may choose to reduce the number of remote connections. 
+--> Examples: Consoidate RP 1-3 & RP 4-5; Consolidate RP 1-5
+
+- Process flow diagram
+-- Malware deployed (process injection?)
+-- Yara rule triggered
+-- Detected by ...
+-- Notification to Manny
+--- Windows.Network.PacketCapture
+--- Memory Image
+-- Notification to Andy
+--- Memory Forensics with Volatility
+--- 
